@@ -1,4 +1,4 @@
-package Logic;
+package logic;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -151,7 +151,9 @@ public class MainGameLogicController implements Initializable {
     }
 
 
-
+public void sellRandomItems(){
+        mainPlayer.sellingItem();
+}
 
 
 

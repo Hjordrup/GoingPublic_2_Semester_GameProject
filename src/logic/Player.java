@@ -1,4 +1,4 @@
-package Logic;
+package logic;
 
 import java.util.ArrayList;
 
@@ -53,15 +53,19 @@ public class Player {
     }
 
 
-    //TODO
+    //Function that pickes and random type of item and sells and random amount of that items.
     public void sellingItem(){
+        int amountToSell = (int)(Math.random()*10)+1;
+        int itemToSell = (int)(Math.random()*6);
 
-
-
+        if(itemsInCompany.get(itemToSell).getAmountOwn() > amountToSell){
+            itemsInCompany.get(itemToSell).setAmountOwn(itemsInCompany.get(itemToSell).getAmountOwn() - amountToSell);
+            setBankValue(getBankValue() + (itemsInCompany.get(itemToSell).getSellingPrice()*amountToSell) );
+        }
     }
 
 
-    //TODO Update function; 
+    //TODO Update function;
 
     //Getters and Setters
     public double getBankValue() {
