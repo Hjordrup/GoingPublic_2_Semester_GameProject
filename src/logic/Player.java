@@ -65,7 +65,7 @@ public class Player {
     }
 
 
-    //TODO Update function;
+
 
     //Getters and Setters
     public double getBankValue() {
