@@ -65,20 +65,25 @@ public class Player {
     }
 
     //Debt payback function.
-    public int paybackDebt(int count, int debtAmount){
-        int newCount = count;
-        if(count == 10 || debtAmount !=0){
+    public int paybackDebt(Player player, int  count){
+        if(count == 10 && player.getDebtValue() !=0){
 
             if (bankValue >= 500){
                 setBankValue(getBankValue()-500);
+                player.setDebtValue(player.getDebtValue() - 500);
                 return 0;
             }else
-                System.out.println("You do not have enought money to payback the loan. ");
+                System.out.println("You do not have enough money to payback the loan. ");
 
             return 0;
         }
         System.out.println("This is the outer loop");
-        return newCount +1;
+        if (player.getDebtValue() == 0 ){
+            System.out.println("You have payed back the loan ");
+            return -1;
+        }
+
+        return count +1;
     }
 
 

@@ -59,11 +59,11 @@ public class MainGameLogicController implements Initializable{
         update();
 
 
-        // Start the thread and update the view.
+        // Start the thread and call methods needed to make the game run by itself i.e automatic selling items and automatic repaying the loan.
         Thread thread = new Thread(() -> {
             while (true) {
                 sellRandomItems();
-                count = mainPlayer.paybackDebt(this.count , this.mainPlayer.getDebtValue());
+                count = mainPlayer.paybackDebt(this.mainPlayer,this.count );
 
                 try {
                     Thread.sleep(1000);
@@ -71,10 +71,26 @@ public class MainGameLogicController implements Initializable{
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+            }
+        });
+
+        // Thred that handels the up det to sleep every 17 mil sec so make the game run at 62 frames a sec.
+        thread.start();
+
+        Thread gThread = new Thread(() -> {
+            while (true) {
+                try {
+                    Thread.sleep(17);
+
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 Platform.runLater(this::update);
             }
         });
-        thread.start();
+        gThread.start();
+
+
     }
 
 
