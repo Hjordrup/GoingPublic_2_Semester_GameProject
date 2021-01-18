@@ -24,14 +24,26 @@ public class MainGameLogicController implements Initializable{
     @FXML
     private Button desktopButton;
 
+
+
+
+    // Main player object.
     public Player mainPlayer = new Player();
+
+
+    //count to know when to payback debt.
+    public int count = 0;
+
+
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //Initalize the mainplayer and his company stats.
 
         mainPlayer.setBankValue(10000);
         mainPlayer.setMarketValue(0);
-        mainPlayer.setDebtValue(1000000);
+        mainPlayer.setDebtValue(100000);
 
 
 
@@ -47,14 +59,14 @@ public class MainGameLogicController implements Initializable{
         update();
 
 
-
         // Start the thread and update the view.
         Thread thread = new Thread(() -> {
             while (true) {
                 sellRandomItems();
+                count = mainPlayer.paybackDebt(this.count , this.mainPlayer.getDebtValue());
 
                 try {
-                    Thread.sleep(100);
+                    Thread.sleep(1000);
 
                 } catch (InterruptedException e) {
                     e.printStackTrace();
