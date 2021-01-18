@@ -20,7 +20,6 @@
          <children>
             <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="sellTemp" mnemonicParsing="false" onAction="#sellRandomItems" text="Sell" />
                   <Label alignment="TOP_CENTER" prefHeight="91.0" prefWidth="328.0" text="Going Public ">
                      <font>
                         <Font name="Gabriola" size="75.0" />
@@ -504,19 +503,6 @@
                            </opaqueInsets>
                         </Label>
                         <Label fx:id="debtValueView" prefHeight="57.0" prefWidth="155.0" text="D value ">
-                           <font>
-                              <Font name="Gabriola" size="40.0" />
-                           </font>
-                        </Label>
-                        <Label prefHeight="57.0" prefWidth="257.0" text="Company LifeSpan: ">
-                           <font>
-                              <Font name="Gabriola" size="40.0" />
-                           </font>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                        </Label>
-                        <Label fx:id="companyLsvIEW" prefHeight="57.0" prefWidth="115.0" text="Timer">
                            <font>
                               <Font name="Gabriola" size="40.0" />
                            </font>

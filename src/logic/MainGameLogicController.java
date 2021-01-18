@@ -1,69 +1,30 @@
 package logic;
+import javafx.application.Platform;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-
 import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class MainGameLogicController implements Initializable {
+public class MainGameLogicController implements Initializable{
     @FXML
-    private ImageView BackGroundImage;
+    private ImageView BackGroundImage, amountChangereArrow;
+
     @FXML
-    private Label amountChecker;
-    @FXML
-    private Label desktopSellingPrice;
-    @FXML
-    private Label desktopCostPrice;
-    @FXML
-    private Label camSellingPrice;
-    @FXML
-    private Label camCostPrice;
-    @FXML
-    private Label xpodSellingPrice;
-    @FXML
-    private Label xpodCostPrice;
-    @FXML
-    private Label laptopSellingPrice;
-    @FXML
-    private Label laptopCostPrice;
-    @FXML
-    private Label xphoneSellingPrice;
-    @FXML
-    private Label xphoneCostPrice;
-    @FXML
-    private Label monitorSellingPrice;
-    @FXML
-    private Label monitorCostPrice;
-    @FXML
-    private Label desktopQuantity;
-    @FXML
-    private Label camQuantity;
-    @FXML
-    private Label xpodQuantity;
-    @FXML
-    private Label laptopQuantity;
-    @FXML
-    private Label xphoneQuantity;
-    @FXML
-    private Label monitorQuantity;
-    @FXML
-    private Label bankValueView;
-    @FXML
-    private Label marketValueView;
-    @FXML
-    private Label debtValueView;
-    @FXML
-    private Label companyLsvIEW;
-    @FXML
-    private ImageView amountChangereArrow;
+    private Label desktopSellingPrice, desktopCostPrice, camSellingPrice, camCostPrice, xpodSellingPrice, xpodCostPrice,
+            amountChecker, laptopSellingPrice, laptopCostPrice, xphoneSellingPrice, xphoneCostPrice, monitorSellingPrice,
+            monitorCostPrice, desktopQuantity, camQuantity, xpodQuantity, laptopQuantity, xphoneQuantity, monitorQuantity,
+            bankValueView, marketValueView, debtValueView;
+
     @FXML
     private Button desktopButton;
 
-    Player mainPlayer = new Player();
+    public Player mainPlayer = new Player();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //Initalize the mainplayer and his company stats.
@@ -71,29 +32,42 @@ public class MainGameLogicController implements Initializable {
         mainPlayer.setBankValue(10000);
         mainPlayer.setMarketValue(0);
         mainPlayer.setDebtValue(1000000);
-        bankValueView.setText(mainPlayer.getBankValue() + "$");
-        debtValueView.setText(mainPlayer.getDebtValue() +"$");
-        marketValueView.setText(mainPlayer.getMarketValue() +"$");
 
 
-        // Initialize the players first set of items. and set the view to the correct stats.
-        mainPlayer.addASingleItemToCompany(new Items("Desktop",10,100,0 ));
-        desktopCostPrice.setText(mainPlayer.getASingelItem(0).getCostPrice() + "$");
-        desktopSellingPrice.setText(mainPlayer.getASingelItem(0).getSellingPrice() + "$");
-        desktopQuantity.setText(String.valueOf(mainPlayer.getASingelItem(0).getAmountOwn()));
+
+        // Initialize the players first set of items.
+        mainPlayer.addASingleItemToCompany(new Items("Desktop",299,499,0 ));
+        mainPlayer.addASingleItemToCompany(new Items("Cam" , 399,799,0));
+        mainPlayer.addASingleItemToCompany(new Items("Xpod" , 105,200,0));
+        mainPlayer.addASingleItemToCompany(new Items("Laptop" , 999,1499,0));
+        mainPlayer.addASingleItemToCompany(new Items("Xphone" , 499,799,0));
+        mainPlayer.addASingleItemToCompany(new Items("Pc Monitor" , 120,500,0));
+
+        //set the game view
+        update();
 
 
-        mainPlayer.addASingleItemToCompany(new Items("Cam" , 11,4,0));
-        camCostPrice.setText(mainPlayer.getASingelItem(1).getCostPrice() + "$");
-        camSellingPrice.setText(mainPlayer.getASingelItem(1).getSellingPrice() + "$");
-        camQuantity.setText(String.valueOf(mainPlayer.getASingelItem(1).getAmountOwn()));
 
-        mainPlayer.addASingleItemToCompany(new Items("Xpod" , 11,4,0));
-        mainPlayer.addASingleItemToCompany(new Items("Laptop" , 11,4,0));
-        mainPlayer.addASingleItemToCompany(new Items("Xphone" , 11,4,0));
-        mainPlayer.addASingleItemToCompany(new Items("Pc Monitor" , 11,4,0));
+        // Start the thread and update the view.
+        Thread thread = new Thread(() -> {
+            while (true) {
+                sellRandomItems();
 
+                try {
+                    Thread.sleep(100);
+
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                Platform.runLater(this::update);
+            }
+        });
+        thread.start();
     }
+
+
+
+
 
     //Function that changed the amount of items you buy
     public void changeAmountToBuy(){
@@ -102,9 +76,8 @@ public class MainGameLogicController implements Initializable {
         }else if ( amountChecker.getText().equals("10")){
             amountChecker.setText("100");
         }else { amountChecker.setText("1");}
+
     }
-
-
 
     // Funcktions that will get activate the buy function in The player class
     public void buyD(){
@@ -151,51 +124,42 @@ public class MainGameLogicController implements Initializable {
     }
 
 
-public void sellRandomItems(){
+    public void sellRandomItems(){
         mainPlayer.sellingItem();
 }
 
 
+    public void update(){
+        bankValueView.setText(mainPlayer.getBankValue() + "$");
+        debtValueView.setText(mainPlayer.getDebtValue() +"$");
+        marketValueView.setText(mainPlayer.getMarketValue() +"$");
+
+        desktopCostPrice.setText(mainPlayer.getASingelItem(0).getCostPrice() + "$");
+        desktopSellingPrice.setText(mainPlayer.getASingelItem(0).getSellingPrice() + "$");
+        desktopQuantity.setText(String.valueOf(mainPlayer.getASingelItem(0).getAmountOwn()));
+
+        camCostPrice.setText(mainPlayer.getASingelItem(1).getCostPrice() + "$");
+        camSellingPrice.setText(mainPlayer.getASingelItem(1).getSellingPrice() + "$");
+        camQuantity.setText(String.valueOf(mainPlayer.getASingelItem(1).getAmountOwn()));
+
+        xpodCostPrice.setText(mainPlayer.getASingelItem(2).getCostPrice() + "$");
+        xpodSellingPrice.setText(mainPlayer.getASingelItem(2).getSellingPrice() + "$");
+        xpodQuantity.setText(String.valueOf(mainPlayer.getASingelItem(2).getAmountOwn()));
+
+        laptopCostPrice.setText(mainPlayer.getASingelItem(3).getCostPrice() + "$");
+        laptopSellingPrice.setText(mainPlayer.getASingelItem(3).getSellingPrice() + "$");
+        laptopQuantity.setText(String.valueOf(mainPlayer.getASingelItem(3).getAmountOwn()));
+
+        xphoneSellingPrice.setText(mainPlayer.getASingelItem(4).getSellingPrice() + "$");
+        xphoneCostPrice.setText(mainPlayer.getASingelItem(4).getCostPrice() + "$");
+        xphoneQuantity.setText(String.valueOf(mainPlayer.getASingelItem(4).getAmountOwn()));
+
+        monitorSellingPrice.setText(mainPlayer.getASingelItem(5).getSellingPrice() + "$");
+        monitorCostPrice.setText(mainPlayer.getASingelItem(5).getCostPrice() +"$");
+        monitorQuantity.setText(String.valueOf(mainPlayer.getASingelItem(5).getAmountOwn()));
 
 
+        // Todo Add timer in gamelogic
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}
+    }

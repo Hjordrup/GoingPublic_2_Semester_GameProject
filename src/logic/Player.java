@@ -5,9 +5,9 @@ import java.util.ArrayList;
 public class Player {
 
     // DateFields
-    private double bankValue;
-    private double marketValue;
-    private double debtValue;
+    private int bankValue;
+    private int marketValue;
+    private int debtValue;
     private ArrayList<Items> itemsInCompany = new ArrayList<>();
 
     //Function that adds and item to the players inventory.
@@ -17,31 +17,31 @@ public class Player {
         if(name.equals("Desktop")){
 
             this.itemsInCompany.get(0).setAmountOwn(this.itemsInCompany.get(0).getAmountOwn() + amountToBuy);
-            this.bankValue = this.bankValue - amountToBuy*itemsInCompany.get(0).getCostPrice();
+            this.bankValue = (int) (this.bankValue - amountToBuy*itemsInCompany.get(0).getCostPrice());
         }else if(name.equals("Cam")){
 
             this.itemsInCompany.get(1).setAmountOwn(this.itemsInCompany.get(1).getAmountOwn() + amountToBuy);
-            this.bankValue = this.bankValue - amountToBuy*itemsInCompany.get(1).getCostPrice();
+            this.bankValue = (int) (this.bankValue - amountToBuy*itemsInCompany.get(1).getCostPrice());
 
         }else if(name.equals("Xpod")){
 
             this.itemsInCompany.get(2).setAmountOwn(this.itemsInCompany.get(2).getAmountOwn() + amountToBuy);
-            this.bankValue = this.bankValue - amountToBuy*itemsInCompany.get(2).getCostPrice();
+            this.bankValue = (int) (this.bankValue - amountToBuy*itemsInCompany.get(2).getCostPrice());
 
         }else if(name.equals("Laptop")){
 
             this.itemsInCompany.get(3).setAmountOwn(this.itemsInCompany.get(3).getAmountOwn() + amountToBuy);
-            this.bankValue = this.bankValue - amountToBuy*itemsInCompany.get(3).getCostPrice();
+            this.bankValue = (int) (this.bankValue - amountToBuy*itemsInCompany.get(3).getCostPrice());
 
         }else if(name.equals("Xphone")){
 
             this.itemsInCompany.get(4).setAmountOwn(this.itemsInCompany.get(4).getAmountOwn() + amountToBuy);
-            this.bankValue = this.bankValue - amountToBuy*itemsInCompany.get(4).getCostPrice();
+            this.bankValue = (int) (this.bankValue - amountToBuy*itemsInCompany.get(4).getCostPrice());
 
         }else if(name.equals("Monitor")){
 
             this.itemsInCompany.get(5).setAmountOwn(this.itemsInCompany.get(5).getAmountOwn() + amountToBuy);
-            this.bankValue = this.bankValue - amountToBuy*itemsInCompany.get(5).getCostPrice();
+            this.bankValue = (int) (this.bankValue - amountToBuy*itemsInCompany.get(5).getCostPrice());
 
         }
 
@@ -60,7 +60,7 @@ public class Player {
 
         if(itemsInCompany.get(itemToSell).getAmountOwn() > amountToSell){
             itemsInCompany.get(itemToSell).setAmountOwn(itemsInCompany.get(itemToSell).getAmountOwn() - amountToSell);
-            setBankValue(getBankValue() + (itemsInCompany.get(itemToSell).getSellingPrice()*amountToSell) );
+            setBankValue((int) (getBankValue() + (itemsInCompany.get(itemToSell).getSellingPrice()*amountToSell)));
         }
     }
 
@@ -68,27 +68,27 @@ public class Player {
 
 
     //Getters and Setters
-    public double getBankValue() {
+    public int getBankValue() {
         return bankValue;
     }
 
-    public void setBankValue(double bankValue) {
+    public void setBankValue(int bankValue) {
         this.bankValue = bankValue;
     }
 
-    public double getMarketValue() {
+    public int getMarketValue() {
         return marketValue;
     }
 
-    public void setMarketValue(double marketValue) {
+    public void setMarketValue(int marketValue) {
         this.marketValue = marketValue;
     }
 
-    public double getDebtValue() {
+    public int getDebtValue() {
         return debtValue;
     }
 
-    public void setDebtValue(double debtValue) {
+    public void setDebtValue(int debtValue) {
         this.debtValue = debtValue;
     }
 

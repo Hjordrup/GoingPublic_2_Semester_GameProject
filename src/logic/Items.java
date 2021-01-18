@@ -3,11 +3,11 @@ package logic;
 public class Items {
     // Datafields
     private String name;
-    private double costPrice;
-    private double sellingPrice;
-    private double amountOwn;
+    private int costPrice;
+    private int sellingPrice;
+    private int amountOwn;
     // Constructor
-    public Items(String name, double costPrice, double sellingPrice, double amountOwn) {
+    public Items(String name, int costPrice, int sellingPrice, int amountOwn) {
         this.name = name;
         this.costPrice = costPrice;
         this.sellingPrice = sellingPrice;
@@ -22,11 +22,11 @@ public class Items {
 
 
     //Getter and setters
-    public void setSellingPrice(double sellingPrice) {
+    public void setSellingPrice(int sellingPrice) {
         this.sellingPrice = sellingPrice;
     }
 
-    public void setCostPrice(double costPrice) {
+    public void setCostPrice(int costPrice) {
         this.costPrice = costPrice;
     }
 
@@ -34,19 +34,19 @@ public class Items {
         this.name = name;
     }
 
-    public void setAmountOwn(double amountOwn) {
+    public void setAmountOwn(int amountOwn) {
         this.amountOwn = amountOwn;
     }
 
-    public double getAmountOwn() {
+    public int getAmountOwn() {
         return amountOwn;
     }
 
-    public double getCostPrice() {
+    public int getCostPrice() {
         return costPrice;
     }
 
-    public double getSellingPrice() {
+    public int getSellingPrice() {
         return sellingPrice;
     }
 
