@@ -87,6 +87,30 @@ public class Player {
     }
 
 
+    //function that takes the players amount of items and calculate and cost price based on that.
+    public void costPriceUpdate(){
+
+
+        for (int i = 0; i < 6; i++) {
+
+            if(this.getASingelItem(i).getAmountOwn() == 0 ){
+                this.getASingelItem(i).setCostPrice((this.getASingelItem(i).getORIGINAL_VALUE()));
+            }else if (this.getASingelItem(i).getAmountOwn()<10 ){
+            this.getASingelItem(i).setCostPrice((int) (this.getASingelItem(i).getORIGINAL_VALUE() * 1.1));
+            }else if (this.getASingelItem(i).getAmountOwn()<20 ){
+                this.getASingelItem(i).setCostPrice((int) (this.getASingelItem(i).getORIGINAL_VALUE() * 1.2));
+            }else if (this.getASingelItem(i).getAmountOwn()<30 ){
+                this.getASingelItem(i).setCostPrice((int) (this.getASingelItem(i).getORIGINAL_VALUE() * 1.3));
+            }else if (this.getASingelItem(i).getAmountOwn()<100 ){
+                this.getASingelItem(i).setCostPrice((int) (this.getASingelItem(i).getORIGINAL_VALUE() * 1.5));
+            }
+        }
+    }
+
+
+
+
+
 
 
     //Getters and Setters

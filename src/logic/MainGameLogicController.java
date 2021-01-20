@@ -55,13 +55,10 @@ public class MainGameLogicController implements Initializable{
         mainPlayer.addASingleItemToCompany(new Items("Xphone" , 499,799,0));
         mainPlayer.addASingleItemToCompany(new Items("Pc Monitor" , 120,500,0));
 
-        //set the game view
-        update();
-
-
         // Start the thread and call methods needed to make the game run by itself i.e automatic selling items and automatic repaying the loan.
         Thread thread = new Thread(() -> {
             while (true) {
+                mainPlayer.costPriceUpdate();
                 sellRandomItems();
                 count = mainPlayer.paybackDebt(this.mainPlayer,this.count );
 
@@ -73,10 +70,9 @@ public class MainGameLogicController implements Initializable{
                 }
             }
         });
-
-        // Thred that handels the up det to sleep every 17 mil sec so make the game run at 62 frames a sec.
         thread.start();
 
+        // Thread that handles the update  set to sleep every 17 mil sec so make the game run at 62 frames a sec.
         Thread gThread = new Thread(() -> {
             while (true) {
                 try {

@@ -69,7 +69,7 @@
                                                 <Insets right="150.0" />
                                              </padding>
                                           </Label>
-                                          <Label fx:id="amountChecker" onMousePressed="#changeAmountToBuy" prefHeight="45.0" prefWidth="60.0" text="100" underline="true">
+                                          <Label fx:id="amountChecker" onMousePressed="#changeAmountToBuy" prefHeight="45.0" prefWidth="60.0" text="1" underline="true">
                                              <font>
                                                 <Font name="Gabriola" size="36.0" />
                                              </font>
