@@ -14,15 +14,24 @@ import java.util.ResourceBundle;
 public class MainGameLogicController implements Initializable{
     @FXML
     private ImageView BackGroundImage, amountChangereArrow;
-
     @FXML
     private Label desktopSellingPrice, desktopCostPrice, camSellingPrice, camCostPrice, xpodSellingPrice, xpodCostPrice,
             amountChecker, laptopSellingPrice, laptopCostPrice, xphoneSellingPrice, xphoneCostPrice, monitorSellingPrice,
             monitorCostPrice, desktopQuantity, camQuantity, xpodQuantity, laptopQuantity, xphoneQuantity, monitorQuantity,
             bankValueView, marketValueView, debtValueView;
-
     @FXML
     private Button desktopButton;
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -30,9 +39,9 @@ public class MainGameLogicController implements Initializable{
     // Main player object.
     public Player mainPlayer = new Player();
 
-
-    //count to know when to payback debt.
+    //count to control the logic.
     public int count = 0;
+    public int costPriceCount = 0;
 
 
 
@@ -40,7 +49,6 @@ public class MainGameLogicController implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //Initalize the mainplayer and his company stats.
-
         mainPlayer.setBankValue(10000);
         mainPlayer.setMarketValue(0);
         mainPlayer.setDebtValue(100000);
@@ -58,9 +66,11 @@ public class MainGameLogicController implements Initializable{
         // Start the thread and call methods needed to make the game run by itself i.e automatic selling items and automatic repaying the loan.
         Thread thread = new Thread(() -> {
             while (true) {
-                mainPlayer.costPriceUpdate();
-                sellRandomItems();
+                costPriceCount = mainPlayer.costPriceUpdate(costPriceCount);
+                mainPlayer.sellingItem();
                 count = mainPlayer.paybackDebt(this.mainPlayer,this.count );
+                mainPlayer.marketValueUpdate();
+
 
                 try {
                     Thread.sleep(1000);
@@ -88,11 +98,6 @@ public class MainGameLogicController implements Initializable{
 
 
     }
-
-
-
-
-
     //Function that changed the amount of items you buy
     public void changeAmountToBuy(){
         if(amountChecker.getText().equals("1")){
@@ -148,9 +153,6 @@ public class MainGameLogicController implements Initializable{
     }
 
 
-    public void sellRandomItems(){
-        mainPlayer.sellingItem();
-}
 
 
     public void update(){

@@ -17,13 +17,6 @@ public class Items {
     }
 
 
-
-
-
-
-
-
-
     //Getter and setters
     public void setSellingPrice(int sellingPrice) {
         this.sellingPrice = sellingPrice;

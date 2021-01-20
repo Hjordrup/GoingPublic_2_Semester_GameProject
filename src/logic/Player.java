@@ -52,7 +52,6 @@ public class Player {
 
     }
 
-
     //Function that pickes and random type of item and sells and random amount of that items.
     public void sellingItem(){
         int amountToSell = (int)(Math.random()*10)+1;
@@ -86,26 +85,31 @@ public class Player {
         return count +1;
     }
 
-
     //function that takes the players amount of items and calculate and cost price based on that.
-    public void costPriceUpdate(){
+    public int costPriceUpdate(int cPC){
+     double randomInt =  (Math.random() + 1) - 0.5;
+     if (cPC == 10 ){
+         for (int i = 0; i < 6; i++) {
+             this.getASingelItem(i).setCostPrice((int) (this.getASingelItem(i).getORIGINAL_VALUE() * randomInt));
+         }
+         return 0;
+     }
 
-
-        for (int i = 0; i < 6; i++) {
-
-            if(this.getASingelItem(i).getAmountOwn() == 0 ){
-                this.getASingelItem(i).setCostPrice((this.getASingelItem(i).getORIGINAL_VALUE()));
-            }else if (this.getASingelItem(i).getAmountOwn()<10 ){
-            this.getASingelItem(i).setCostPrice((int) (this.getASingelItem(i).getORIGINAL_VALUE() * 1.1));
-            }else if (this.getASingelItem(i).getAmountOwn()<20 ){
-                this.getASingelItem(i).setCostPrice((int) (this.getASingelItem(i).getORIGINAL_VALUE() * 1.2));
-            }else if (this.getASingelItem(i).getAmountOwn()<30 ){
-                this.getASingelItem(i).setCostPrice((int) (this.getASingelItem(i).getORIGINAL_VALUE() * 1.3));
-            }else if (this.getASingelItem(i).getAmountOwn()<100 ){
-                this.getASingelItem(i).setCostPrice((int) (this.getASingelItem(i).getORIGINAL_VALUE() * 1.5));
-            }
-        }
+        return cPC + 1;
     }
+
+
+    // Function that calculates the correct Market value
+    public void marketValueUpdate(){
+        int valueOfStock =0;
+        for (int i = 0; i < 6; i++) {
+            valueOfStock = valueOfStock + (this.getASingelItem(i).getAmountOwn() * this.getASingelItem(i).getCostPrice());
+        }
+        this.marketValue = (valueOfStock + this.bankValue);
+    }
+
+
+
 
 
 
