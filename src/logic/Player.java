@@ -14,35 +14,31 @@ public class Player {
     public void buyItem(String name, int amountToBuy){
 
         System.out.println("My bank value is " + bankValue);
-        if(name.equals("Desktop")){
-
-            this.itemsInCompany.get(0).setAmountOwn(this.itemsInCompany.get(0).getAmountOwn() + amountToBuy);
-            this.bankValue = (int) (this.bankValue - amountToBuy*itemsInCompany.get(0).getCostPrice());
-        }else if(name.equals("Cam")){
-
-            this.itemsInCompany.get(1).setAmountOwn(this.itemsInCompany.get(1).getAmountOwn() + amountToBuy);
-            this.bankValue = (int) (this.bankValue - amountToBuy*itemsInCompany.get(1).getCostPrice());
-
-        }else if(name.equals("Xpod")){
-
-            this.itemsInCompany.get(2).setAmountOwn(this.itemsInCompany.get(2).getAmountOwn() + amountToBuy);
-            this.bankValue = (int) (this.bankValue - amountToBuy*itemsInCompany.get(2).getCostPrice());
-
-        }else if(name.equals("Laptop")){
-
-            this.itemsInCompany.get(3).setAmountOwn(this.itemsInCompany.get(3).getAmountOwn() + amountToBuy);
-            this.bankValue = (int) (this.bankValue - amountToBuy*itemsInCompany.get(3).getCostPrice());
-
-        }else if(name.equals("Xphone")){
-
-            this.itemsInCompany.get(4).setAmountOwn(this.itemsInCompany.get(4).getAmountOwn() + amountToBuy);
-            this.bankValue = (int) (this.bankValue - amountToBuy*itemsInCompany.get(4).getCostPrice());
-
-        }else if(name.equals("Monitor")){
-
-            this.itemsInCompany.get(5).setAmountOwn(this.itemsInCompany.get(5).getAmountOwn() + amountToBuy);
-            this.bankValue = (int) (this.bankValue - amountToBuy*itemsInCompany.get(5).getCostPrice());
-
+        switch (name) {
+            case "Desktop" -> {
+                this.itemsInCompany.get(0).setAmountOwn(this.itemsInCompany.get(0).getAmountOwn() + amountToBuy);
+                this.bankValue = (int) (this.bankValue - amountToBuy * itemsInCompany.get(0).getCostPrice());
+            }
+            case "Cam" -> {
+                this.itemsInCompany.get(1).setAmountOwn(this.itemsInCompany.get(1).getAmountOwn() + amountToBuy);
+                this.bankValue = (int) (this.bankValue - amountToBuy * itemsInCompany.get(1).getCostPrice());
+            }
+            case "Xpod" -> {
+                this.itemsInCompany.get(2).setAmountOwn(this.itemsInCompany.get(2).getAmountOwn() + amountToBuy);
+                this.bankValue = (int) (this.bankValue - amountToBuy * itemsInCompany.get(2).getCostPrice());
+            }
+            case "Laptop" -> {
+                this.itemsInCompany.get(3).setAmountOwn(this.itemsInCompany.get(3).getAmountOwn() + amountToBuy);
+                this.bankValue = (int) (this.bankValue - amountToBuy * itemsInCompany.get(3).getCostPrice());
+            }
+            case "Xphone" -> {
+                this.itemsInCompany.get(4).setAmountOwn(this.itemsInCompany.get(4).getAmountOwn() + amountToBuy);
+                this.bankValue = (int) (this.bankValue - amountToBuy * itemsInCompany.get(4).getCostPrice());
+            }
+            case "Monitor" -> {
+                this.itemsInCompany.get(5).setAmountOwn(this.itemsInCompany.get(5).getAmountOwn() + amountToBuy);
+                this.bankValue = (int) (this.bankValue - amountToBuy * itemsInCompany.get(5).getCostPrice());
+            }
         }
 
 
@@ -52,7 +48,7 @@ public class Player {
 
     }
 
-    //Function that pickes and random type of item and sells and random amount of that items.
+    //Function that picks and random type of item and sells and random amount of that items.
     public void sellingItem(){
         int amountToSell = (int)(Math.random()*10)+1;
         int itemToSell = (int)(Math.random()*6);
@@ -107,13 +103,6 @@ public class Player {
         }
         this.marketValue = (valueOfStock + this.bankValue);
     }
-
-
-
-
-
-
-
 
 
 
