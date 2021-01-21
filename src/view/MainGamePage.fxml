@@ -61,7 +61,7 @@
                                                 <Insets right="150.0" />
                                              </padding>
                                           </Label>
-                                          <Label text="Cost Price: " underline="true">
+                                          <Label prefHeight="45.0" prefWidth="295.0" text="Cost Price: " underline="true">
                                              <font>
                                                 <Font name="Gabriola" size="36.0" />
                                              </font>
@@ -69,12 +69,12 @@
                                                 <Insets right="150.0" />
                                              </padding>
                                           </Label>
-                                          <Label fx:id="amountChecker" onMousePressed="#changeAmountToBuy" prefHeight="45.0" prefWidth="60.0" text="1" underline="true">
+                                          <Label fx:id="amountChecker" onMousePressed="#changeAmountToBuy" prefHeight="45.0" prefWidth="56.0" text="1" underline="true">
                                              <font>
                                                 <Font name="Gabriola" size="36.0" />
                                              </font>
                                           </Label>
-                                          <ImageView fx:id="amountChangereArrow" fitHeight="47.0" fitWidth="35.0" onMouseClicked="#changeAmountToBuy" onMousePressed="#changeAmountToBuy" pickOnBounds="true" preserveRatio="true">
+                                          <ImageView fx:id="amountChangereArrow" fitHeight="47.0" fitWidth="35.0" onMouseClicked="#changeAmountToBuy" pickOnBounds="true" preserveRatio="true">
                                              <image>
                                                 <Image url="@../image/return.png" />
                                              </image>
@@ -107,7 +107,7 @@
                                                 <Insets left="90.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <Label fx:id="desktopCostPrice" prefHeight="35.0" prefWidth="50.0" text="299$">
+                                          <Label fx:id="desktopCostPrice" prefHeight="35.0" prefWidth="70.0" text="299$">
                                              <font>
                                                 <Font name="Gabriola" size="29.0" />
                                              </font>
@@ -115,7 +115,7 @@
                                                 <Insets left="250.0" right="200.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <Button fx:id="desktopButton" mnemonicParsing="false" onAction="#buyD" prefHeight="37.0" prefWidth="50.0" style="-fx-background-color: #FFFFFF, #FFFFFF; -fx-border-color: black;" text="Buy">
+                                          <Button fx:id="desktopButton" mnemonicParsing="false" onAction="#buyD" prefHeight="37.0" prefWidth="50.0" style="-fx-border-color: black;" text="Buy">
                                              <font>
                                                 <Font name="Gabriola" size="18.0" />
                                              </font>
@@ -148,7 +148,7 @@
                                                 <Insets left="90.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <Label fx:id="camCostPrice" prefHeight="35.0" prefWidth="50.0" text="399$">
+                                          <Label fx:id="camCostPrice" prefHeight="35.0" prefWidth="70.0" text="399$">
                                              <font>
                                                 <Font name="Gabriola" size="29.0" />
                                              </font>
@@ -156,7 +156,7 @@
                                                 <Insets left="250.0" right="200.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <Button mnemonicParsing="false" onAction="#buyC" prefHeight="37.0" prefWidth="50.0" style="-fx-background-color: #FFFFFF, #FFFFFF; -fx-border-color: black;" text="Buy">
+                                          <Button mnemonicParsing="false" onAction="#buyC" prefHeight="37.0" prefWidth="50.0" style="-fx-border-color: black;" text="Buy">
                                              <font>
                                                 <Font name="Gabriola" size="18.0" />
                                              </font>
@@ -188,7 +188,7 @@
                                                 <Insets left="90.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <Label prefHeight="30.0" prefWidth="50.0" text="105$" fx:id="xpodCostPrice">
+                                          <Label prefHeight="30.0" prefWidth="70.0" text="105$" fx:id="xpodCostPrice">
                                              <font>
                                                 <Font name="Gabriola" size="29.0" />
                                              </font>
@@ -196,7 +196,7 @@
                                                 <Insets left="250.0" right="200.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <Button mnemonicParsing="false" onAction="#buyXp" prefHeight="37.0" prefWidth="50.0" style="-fx-background-color: #FFFFFF, #FFFFFF; -fx-border-color: black;" text="Buy">
+                                          <Button mnemonicParsing="false" onAction="#buyXp" prefHeight="37.0" prefWidth="50.0" style="-fx-border-color: black;" text="Buy">
                                              <font>
                                                 <Font name="Gabriola" size="18.0" />
                                              </font>
@@ -228,7 +228,7 @@
                                                 <Insets left="90.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <Label fx:id="laptopCostPrice" prefHeight="35.0" prefWidth="50.0" text="999$">
+                                          <Label fx:id="laptopCostPrice" prefHeight="35.0" prefWidth="70.0" text="999$">
                                              <font>
                                                 <Font name="Gabriola" size="29.0" />
                                              </font>
@@ -236,7 +236,7 @@
                                                 <Insets left="250.0" right="200.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <Button mnemonicParsing="false" onAction="#buyL" prefHeight="37.0" prefWidth="50.0" style="-fx-background-color: #FFFFFF, white; -fx-border-color: black;" text="Buy">
+                                          <Button mnemonicParsing="false" onAction="#buyL" prefHeight="37.0" prefWidth="50.0" style="-fx-border-color: black;" text="Buy">
                                              <font>
                                                 <Font name="Gabriola" size="18.0" />
                                              </font>
@@ -268,7 +268,7 @@
                                                 <Insets left="90.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <Label prefHeight="30.0" prefWidth="50.0" text="499$" fx:id="xphoneCostPrice">
+                                          <Label prefHeight="30.0" prefWidth="70.0" text="499$" fx:id="xphoneCostPrice">
                                              <font>
                                                 <Font name="Gabriola" size="29.0" />
                                              </font>
@@ -276,7 +276,7 @@
                                                 <Insets left="250.0" right="200.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <Button mnemonicParsing="false" onAction="#buyXP" prefHeight="37.0" prefWidth="50.0" style="-fx-background-color: #FFFFFF, white; -fx-border-color: black;" text="Buy">
+                                          <Button mnemonicParsing="false" onAction="#buyXP" prefHeight="37.0" prefWidth="50.0" style="-fx-border-color: black;" text="Buy">
                                              <font>
                                                 <Font name="Gabriola" size="18.0" />
                                              </font>
@@ -308,7 +308,7 @@
                                                 <Insets left="90.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <Label fx:id="monitorCostPrice" prefHeight="30.0" prefWidth="50.0" text="120$">
+                                          <Label fx:id="monitorCostPrice" prefHeight="30.0" prefWidth="70.0" text="120$">
                                              <font>
                                                 <Font name="Gabriola" size="29.0" />
                                              </font>
@@ -316,7 +316,7 @@
                                                 <Insets left="250.0" right="200.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <Button mnemonicParsing="false" onAction="#buyM" prefHeight="37.0" prefWidth="50.0" style="-fx-background-color: #FFFFFF, white; -fx-border-color: black;" text="Buy">
+                                          <Button mnemonicParsing="false" onAction="#buyM" prefHeight="37.0" prefWidth="50.0" style="-fx-border-color: black;" text="Buy">
                                              <font>
                                                 <Font name="Gabriola" size="18.0" />
                                              </font>
@@ -481,7 +481,7 @@
                               <Font name="Gabriola" size="40.0" />
                            </font>
                         </Label>
-                        <Label prefHeight="57.0" prefWidth="185.0" text="Market Value: ">
+                        <Label prefHeight="57.0" prefWidth="260.0" text="Company Value: ">
                            <font>
                               <Font name="Gabriola" size="40.0" />
                            </font>
@@ -489,7 +489,7 @@
                               <Insets />
                            </opaqueInsets>
                         </Label>
-                        <Label fx:id="marketValueView" prefHeight="57.0" prefWidth="173.0" text="m Value ">
+                        <Label fx:id="marketValueView" prefHeight="57.0" prefWidth="228.0" text="m Value ">
                            <font>
                               <Font name="Gabriola" size="40.0" />
                            </font>

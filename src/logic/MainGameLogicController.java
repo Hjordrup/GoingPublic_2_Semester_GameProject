@@ -23,27 +23,14 @@ public class MainGameLogicController implements Initializable{
     private Button desktopButton;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     // Main player object.
     public Player mainPlayer = new Player();
+
 
     //count to control the logic.
     public int count = 0;
     public int costPriceCount = 0;
-
-
+    public int dayCounter =0;
 
 
     @Override
@@ -98,6 +85,8 @@ public class MainGameLogicController implements Initializable{
 
 
     }
+
+
     //Function that changed the amount of items you buy
     public void changeAmountToBuy(){
         if(amountChecker.getText().equals("1")){
@@ -107,6 +96,7 @@ public class MainGameLogicController implements Initializable{
         }else { amountChecker.setText("1");}
 
     }
+
 
     // Funcktions that will get activate the buy function in The player class
     public void buyD(){
@@ -153,8 +143,6 @@ public class MainGameLogicController implements Initializable{
     }
 
 
-
-
     public void update(){
         bankValueView.setText(mainPlayer.getBankValue() + "$");
         debtValueView.setText(mainPlayer.getDebtValue() +"$");
@@ -184,8 +172,6 @@ public class MainGameLogicController implements Initializable{
         monitorCostPrice.setText(mainPlayer.getASingelItem(5).getCostPrice() +"$");
         monitorQuantity.setText(String.valueOf(mainPlayer.getASingelItem(5).getAmountOwn()));
 
-
-        // Todo Add timer in gamelogic
     }
 
     }
