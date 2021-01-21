@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,6 +22,9 @@ public class MainGameLogicController implements Initializable{
             bankValueView, marketValueView, debtValueView;
     @FXML
     private Button desktopButton;
+
+    @FXML
+    private Slider dSlider, cSlider, xpodSlider, lSlider,xphoneSlider, mSlider;
 
 
     // Main player object.
@@ -57,8 +61,6 @@ public class MainGameLogicController implements Initializable{
                 mainPlayer.sellingItem();
                 count = mainPlayer.paybackDebt(this.mainPlayer,this.count );
                 mainPlayer.marketValueUpdate();
-
-
                 try {
                     Thread.sleep(1000);
 
@@ -72,6 +74,7 @@ public class MainGameLogicController implements Initializable{
         // Thread that handles the update  set to sleep every 17 mil sec so make the game run at 62 frames a sec.
         Thread gThread = new Thread(() -> {
             while (true) {
+                sellingPriceModifier();
                 try {
                     Thread.sleep(17);
 
@@ -141,6 +144,22 @@ public class MainGameLogicController implements Initializable{
                         mainPlayer.buyItem("Laptop", amountToBuy);
                     }
     }
+
+
+
+    // Function that set the selling price based on a modifier from a slider in the game.
+    public void sellingPriceModifier(){
+        this.mainPlayer.getASingelItem(0).setSellingPrice((int) (this.mainPlayer.getASingelItem(0).getORGINAL_SELLINGPRICE()* dSlider.getValue()));
+        this.mainPlayer.getASingelItem(1).setSellingPrice((int) (this.mainPlayer.getASingelItem(1).getORGINAL_SELLINGPRICE()* cSlider.getValue()));
+        this.mainPlayer.getASingelItem(2).setSellingPrice((int) (this.mainPlayer.getASingelItem(2).getORGINAL_SELLINGPRICE()* xpodSlider.getValue()));
+        this.mainPlayer.getASingelItem(3).setSellingPrice((int) (this.mainPlayer.getASingelItem(3).getORGINAL_SELLINGPRICE()* lSlider.getValue()));
+        this.mainPlayer.getASingelItem(4).setSellingPrice((int) (this.mainPlayer.getASingelItem(4).getORGINAL_SELLINGPRICE()* xphoneSlider.getValue()));
+        this.mainPlayer.getASingelItem(5).setSellingPrice((int) (this.mainPlayer.getASingelItem(5).getORGINAL_SELLINGPRICE()* mSlider.getValue()));
+    }
+
+
+
+
 
 
     public void update(){

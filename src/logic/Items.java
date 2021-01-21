@@ -7,6 +7,8 @@ public class Items {
     private int sellingPrice;
     private int amountOwn;
     private final int ORIGINAL_VALUE;
+    private int ORGINAL_SELLINGPRICE;
+
     // Constructor
     public Items(String name, int costPrice, int sellingPrice, int amountOwn) {
         this.name = name;
@@ -14,6 +16,7 @@ public class Items {
         this.sellingPrice = sellingPrice;
         this.amountOwn = amountOwn;
         this.ORIGINAL_VALUE = this.costPrice;
+        this.ORGINAL_SELLINGPRICE = this.sellingPrice;
     }
 
 
@@ -52,9 +55,9 @@ public class Items {
 
     public int getORIGINAL_VALUE(){
         return this.ORIGINAL_VALUE;
-
     }
 
-
-
+    public int getORGINAL_SELLINGPRICE() {
+        return ORGINAL_SELLINGPRICE;
+    }
 }
