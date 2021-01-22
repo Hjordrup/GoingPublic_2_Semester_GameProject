@@ -101,7 +101,7 @@ public class MainGameLogicController implements Initializable{
     }
 
 
-    // Funcktions that will get activate the buy function in The player class
+    // Funcktions that will activate the buy function in The player class
     public void buyD(){
             // Find what amount the player wan´t to buy.
             int amountToBuy = Integer.parseInt(amountChecker.getText());

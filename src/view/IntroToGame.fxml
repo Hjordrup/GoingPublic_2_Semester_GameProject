@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.MainGameViewController">
+   <children>
+      <ImageView fitHeight="750.0" fitWidth="1600.0" layoutX="-14.0" pickOnBounds="true">
+         <image>
+            <Image url="@../image/BGGoingPublic.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="93.0" layoutY="49.0" opacity="0.87" prefHeight="559.0" prefWidth="1418.0" style="-fx-background-color: white; -fx-border-color: black;" />
+      <Label layoutX="676.0" layoutY="639.0" opacity="0.87" prefHeight="80.0" prefWidth="252.0" style="-fx-background-color: white; -fx-border-color: black;" />
+      <Label alignment="CENTER" layoutX="676.0" layoutY="639.0" onMouseClicked="#continueToGame" prefHeight="80.0" prefWidth="252.0" text="Start Game">
+         <font>
+            <Font name="Gabriola" size="40.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_LEFT" layoutX="93.0" layoutY="49.0" prefHeight="559.0" prefWidth="1418.0" text="This panel will contain the game intro ">
+         <font>
+            <Font name="Gabriola" size="43.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
