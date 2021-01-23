@@ -1,6 +1,11 @@
-TODO Add background music
+
 TODO Add sound effects.
 TODO Add a end goal system.
 TODO Add extra backgrounds :) i.e money if you have a big bank value.
 TODO remake the selling function after.
 TODO make the threads that handles the main game loop and the Graphics update close on exit.
+TODO add a mute button;
+TODO add a way to see what is gonna be popular in the newxt selling week.
+TODO add a progress bar that show when the next selling week will happen.
+TODO add the intro story / game information
+TODO add the credits to the game.
