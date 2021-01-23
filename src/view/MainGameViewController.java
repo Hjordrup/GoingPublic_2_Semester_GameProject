@@ -1,11 +1,9 @@
 package view;
 
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -13,19 +11,13 @@ import java.io.IOException;
 
 
 public class MainGameViewController extends Application {
-    @FXML
-    private Label newGameButton;
-
-    @FXML
-    private Label ContinueButton;
-
-    @FXML
-    private Label CreditsButton;
     Parent root;
     Stage primaryStage;
 
     @Override
     public void start(Stage primary) throws Exception{
+
+
         this.primaryStage = primary;
         root = FXMLLoader.load(getClass().getResource("../view/MainMenu.fxml"));
         primaryStage.setTitle("Going Public V.0.3 Pre-Alpha");
@@ -43,6 +35,7 @@ public class MainGameViewController extends Application {
         stage.setScene(new Scene(root1));
         stage.show();
 
+
     }
 
     public void continueToGame(MouseEvent event) throws IOException {
@@ -54,9 +47,6 @@ public class MainGameViewController extends Application {
         stage.setResizable(false);
         stage.show();
     }
-
-
-
 
     public static void main(String[] args) {
         launch(args);

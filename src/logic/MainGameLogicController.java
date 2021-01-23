@@ -1,13 +1,13 @@
 package logic;
 import javafx.application.Platform;
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
+
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -27,15 +27,15 @@ public class MainGameLogicController implements Initializable{
     private Slider dSlider, cSlider, xpodSlider, lSlider,xphoneSlider, mSlider;
 
 
-    // Main player object.
+    // Main player object and backgroundMusic.
     public Player mainPlayer = new Player();
+    public MusicClass m1 = new MusicClass();
 
 
     //count to control the logic.
     public int count = 0;
     public int costPriceCount = 0;
     public int dayCounter =0;
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -44,8 +44,6 @@ public class MainGameLogicController implements Initializable{
         mainPlayer.setMarketValue(0);
         mainPlayer.setDebtValue(100000);
 
-
-
         // Initialize the players first set of items.
         mainPlayer.addASingleItemToCompany(new Items("Desktop",299,499,0 ));
         mainPlayer.addASingleItemToCompany(new Items("Cam" , 399,799,0));
@@ -53,6 +51,10 @@ public class MainGameLogicController implements Initializable{
         mainPlayer.addASingleItemToCompany(new Items("Laptop" , 999,1499,0));
         mainPlayer.addASingleItemToCompany(new Items("Xphone" , 499,799,0));
         mainPlayer.addASingleItemToCompany(new Items("Pc Monitor" , 120,500,0));
+
+        //Start the BackgroundMusic
+        m1.playMusic();
+
 
         // Start the thread and call methods needed to make the game run by itself i.e automatic selling items and automatic repaying the loan.
         Thread thread = new Thread(() -> {
@@ -156,9 +158,6 @@ public class MainGameLogicController implements Initializable{
         this.mainPlayer.getASingelItem(4).setSellingPrice((int) (this.mainPlayer.getASingelItem(4).getORGINAL_SELLINGPRICE()* xphoneSlider.getValue()));
         this.mainPlayer.getASingelItem(5).setSellingPrice((int) (this.mainPlayer.getASingelItem(5).getORGINAL_SELLINGPRICE()* mSlider.getValue()));
     }
-
-
-
 
 
 
