@@ -12,16 +12,18 @@ import java.io.IOException;
 
 public class MainGameViewController extends Application {
     Parent root;
+    Parent root1;
     Stage primaryStage;
 
     @Override
     public void start(Stage primary) throws Exception{
 
 
-        this.primaryStage = primary;
+        primaryStage = primary;
         root = FXMLLoader.load(getClass().getResource("../view/MainMenu.fxml"));
         primaryStage.setTitle("Going Public V.0.3 Pre-Alpha");
-        primaryStage.setScene(new Scene(root));
+        Scene s1 = new Scene(root);
+        primaryStage.setScene(s1);
         primaryStage.setResizable(false);
         primaryStage.show();
 
@@ -29,11 +31,12 @@ public class MainGameViewController extends Application {
 
     public void setNewGameButton(MouseEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../view/IntroToGame.fxml"));
-        Parent root1 = (Parent) fxmlLoader.load();
+        root1 = fxmlLoader.load();
         Stage stage = new Stage();
         stage.setTitle("Going Public V.0.3 Pre-Alpha");
         stage.setScene(new Scene(root1));
         stage.show();
+
 
 
     }

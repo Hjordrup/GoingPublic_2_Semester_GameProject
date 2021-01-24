@@ -110,6 +110,9 @@ public class MainGameLogicController implements Initializable{
             // Check if the player has enough money to buy.
             if(amountToBuy * mainPlayer.getASingelItem(0).getCostPrice() < mainPlayer.getBankValue()){
             mainPlayer.buyItem("Desktop",amountToBuy);
+            m1.playBuySound();
+
+
         }
 
     }
@@ -118,6 +121,7 @@ public class MainGameLogicController implements Initializable{
 
         if(amountToBuy * mainPlayer.getASingelItem(1).getCostPrice() < mainPlayer.getBankValue()) {
             mainPlayer.buyItem("Cam", amountToBuy);
+            m1.playBuySound();
         }
     }
     public void buyXP(){
@@ -126,24 +130,28 @@ public class MainGameLogicController implements Initializable{
 
         if(amountToBuy * mainPlayer.getASingelItem(4).getCostPrice() < mainPlayer.getBankValue()) {
             mainPlayer.buyItem("Xphone", amountToBuy);
+            m1.playBuySound();
         }
     }
     public void buyXp(){
         int amountToBuy = Integer.parseInt(amountChecker.getText());
             if(amountToBuy * mainPlayer.getASingelItem(2).getCostPrice() < mainPlayer.getBankValue()) {
                 mainPlayer.buyItem("Xpod", amountToBuy);
+                m1.playBuySound();
             }
     }
     public void buyM(){
         int amountToBuy = Integer.parseInt(amountChecker.getText());
                 if(amountToBuy * mainPlayer.getASingelItem(5).getCostPrice() < mainPlayer.getBankValue()) {
                     mainPlayer.buyItem("Monitor", amountToBuy);
+                    m1.playBuySound();
                 }
     }
     public void buyL(){
         int amountToBuy = Integer.parseInt(amountChecker.getText());
                     if(amountToBuy * mainPlayer.getASingelItem(3).getCostPrice() < mainPlayer.getBankValue()) {
                         mainPlayer.buyItem("Laptop", amountToBuy);
+                        m1.playBuySound();
                     }
     }
 
