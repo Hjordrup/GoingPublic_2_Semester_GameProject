@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
 
@@ -22,9 +23,10 @@ public class MainGameLogicController implements Initializable{
             bankValueView, marketValueView, debtValueView;
     @FXML
     private Button desktopButton;
-
     @FXML
     private Slider dSlider, cSlider, xpodSlider, lSlider,xphoneSlider, mSlider;
+    @FXML
+    private ProgressBar dayProgressBar;
 
 
     // Main player object and backgroundMusic.
@@ -36,6 +38,7 @@ public class MainGameLogicController implements Initializable{
     public int count = 0;
     public int costPriceCount = 0;
     public int dayCounter =0;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -63,6 +66,7 @@ public class MainGameLogicController implements Initializable{
                 mainPlayer.sellingItem();
                 count = mainPlayer.paybackDebt(this.mainPlayer,this.count );
                 mainPlayer.marketValueUpdate();
+                this.dayProgressBar.setProgress(count*0.01);
                 try {
                     Thread.sleep(1000);
 
