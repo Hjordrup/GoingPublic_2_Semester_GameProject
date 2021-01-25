@@ -15,7 +15,7 @@ import java.util.ResourceBundle;
 
 public class MainGameLogicController implements Initializable{
     @FXML
-    private ImageView BackGroundImage, amountChangereArrow;
+    private ImageView BackGroundImage, amountChangereArrow, muteButton;;
     @FXML
     private Label desktopSellingPrice, desktopCostPrice, camSellingPrice, camCostPrice, xpodSellingPrice, xpodCostPrice,
             amountChecker, laptopSellingPrice, laptopCostPrice, xphoneSellingPrice, xphoneCostPrice, monitorSellingPrice,
@@ -66,7 +66,7 @@ public class MainGameLogicController implements Initializable{
                 mainPlayer.sellingItem();
                 count = mainPlayer.paybackDebt(this.mainPlayer,this.count );
                 mainPlayer.marketValueUpdate();
-                this.dayProgressBar.setProgress(count*0.01);
+                this.dayProgressBar.setProgress(count*0.1);
                 try {
                     Thread.sleep(1000);
 
@@ -170,6 +170,48 @@ public class MainGameLogicController implements Initializable{
         this.mainPlayer.getASingelItem(4).setSellingPrice((int) (this.mainPlayer.getASingelItem(4).getORGINAL_SELLINGPRICE()* xphoneSlider.getValue()));
         this.mainPlayer.getASingelItem(5).setSellingPrice((int) (this.mainPlayer.getASingelItem(5).getORGINAL_SELLINGPRICE()* mSlider.getValue()));
     }
+
+
+
+    //Mute gameSound.
+    public void muteSound(){
+        m1.muteSound();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

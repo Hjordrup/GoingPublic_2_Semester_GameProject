@@ -8,7 +8,7 @@ public class MusicClass {
     Media backgroundMusic = new Media("file:///C:/Users/Hjord/OneDrive/Skrivebord/Items/BackgroundMusic.wav");
     Media buy = new Media("file:///C:/Users/Hjord/OneDrive/Skrivebord/Items/BuySound.wav");
     MediaPlayer mediaPlayer;
-
+    boolean mute = false;
 
 
     void playMusic(){
@@ -26,5 +26,13 @@ public class MusicClass {
         mediaPlayer.setVolume(0.02);
     }
 
-
+    void muteSound(){
+        if(!mute){
+            this.mediaPlayer.setVolume(0);
+            this.mute = true;
+        }else if (mute){
+            this.mediaPlayer.setVolume(0.02);
+            this.mute = false;
+        }
+    }
 }

@@ -13,20 +13,17 @@ import java.io.IOException;
 public class MainGameViewController extends Application {
     Parent root;
     Parent root1;
-    Stage primaryStage;
+    Stage window;
 
     @Override
-    public void start(Stage primary) throws Exception{
-
-
-        primaryStage = primary;
+    public void start(Stage primaryStage) throws Exception{
+        window = primaryStage;
         root = FXMLLoader.load(getClass().getResource("../view/MainMenu.fxml"));
-        primaryStage.setTitle("Going Public V.0.3 Pre-Alpha");
+        window.setTitle("Going Public V.0.3 Pre-Alpha");
         Scene s1 = new Scene(root);
-        primaryStage.setScene(s1);
-        primaryStage.setResizable(false);
-        primaryStage.show();
-
+        window.setScene(s1);
+        window.setResizable(false);
+        window.show();
     }
 
     public void setNewGameButton(MouseEvent event) throws IOException {
@@ -36,8 +33,6 @@ public class MainGameViewController extends Application {
         stage.setTitle("Going Public V.0.3 Pre-Alpha");
         stage.setScene(new Scene(root1));
         stage.show();
-
-
 
     }
 

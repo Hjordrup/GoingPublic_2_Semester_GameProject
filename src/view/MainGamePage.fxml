@@ -558,6 +558,14 @@
                               <Insets top="20.0" />
                            </HBox.margin>
                         </ProgressBar>
+                        <ImageView fx:id="muteButton" fitHeight="34.0" fitWidth="66.0" onMouseClicked="#muteSound" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/mute.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="10.0" top="10.0" />
+                           </HBox.margin>
+                        </ImageView>
                      </children>
                   </HBox>
                </children></Pane>
