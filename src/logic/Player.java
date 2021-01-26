@@ -42,7 +42,7 @@ public class Player {
         }
 
 
-        System.out.println("I bought and item ");
+        System.out.println("I bought an item ");
 
         System.out.println("Now my bank value is " + bankValue);
 

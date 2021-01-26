@@ -57,7 +57,7 @@
                                                 <Insets left="100.0" right="125.0" />
                                              </padding>
                                           </Label>
-                                          <Label text="Selling Price" underline="true">
+                                          <Label text="Selling Price:" underline="true">
                                              <font>
                                                 <Font name="Gabriola" size="36.0" />
                                              </font>
@@ -65,18 +65,23 @@
                                                 <Insets right="150.0" />
                                              </padding>
                                           </Label>
-                                          <Label prefHeight="45.0" prefWidth="315.0" text="Cost Price: " underline="true">
+                                          <Label prefHeight="45.0" prefWidth="142.0" text="Cost Price: " underline="true">
                                              <font>
                                                 <Font name="Gabriola" size="36.0" />
                                              </font>
-                                             <padding>
-                                                <Insets right="150.0" />
-                                             </padding>
                                              <HBox.margin>
-                                                <Insets left="40.0" />
+                                                <Insets left="40.0" right="65.0" />
                                              </HBox.margin>
                                           </Label>
-                                          <Label fx:id="amountChecker" onMousePressed="#changeAmountToBuy" prefHeight="45.0" prefWidth="56.0" text="1" underline="true">
+                                          <Label text="Amount:" underline="true">
+                                             <font>
+                                                <Font name="Gabriola" size="36.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets right="20.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <Label fx:id="amountChecker" onMousePressed="#changeAmountToBuy" prefHeight="45.0" prefWidth="23.0" text="1" underline="true">
                                              <font>
                                                 <Font name="Gabriola" size="36.0" />
                                              </font>
@@ -116,7 +121,7 @@
                                           </Label>
                                           <Slider fx:id="dSlider" max="2.0" value="1.0">
                                              <HBox.margin>
-                                                <Insets right="150.0" top="10.0" />
+                                                <Insets right="115.0" top="10.0" />
                                              </HBox.margin>
                                           </Slider>
                                           <Label fx:id="desktopCostPrice" prefHeight="35.0" prefWidth="70.0" text="299$">
@@ -124,7 +129,7 @@
                                                 <Font name="Gabriola" size="29.0" />
                                              </font>
                                              <HBox.margin>
-                                                <Insets right="200.0" />
+                                                <Insets right="235.0" />
                                              </HBox.margin>
                                           </Label>
                                           <Button fx:id="desktopButton" mnemonicParsing="false" onAction="#buyD" prefHeight="37.0" prefWidth="50.0" style="-fx-border-color: black;" text="Buy">
@@ -162,7 +167,7 @@
                                           </Label>
                                           <Slider fx:id="cSlider" max="2.0" value="1.0">
                                              <HBox.margin>
-                                                <Insets right="150.0" top="10.0" />
+                                                <Insets right="115.0" top="10.0" />
                                              </HBox.margin>
                                           </Slider>
                                           <Label fx:id="camCostPrice" prefHeight="35.0" prefWidth="70.0" text="399$">
@@ -170,7 +175,7 @@
                                                 <Font name="Gabriola" size="29.0" />
                                              </font>
                                              <HBox.margin>
-                                                <Insets right="200.0" />
+                                                <Insets right="235.0" />
                                              </HBox.margin>
                                           </Label>
                                           <Button mnemonicParsing="false" onAction="#buyC" prefHeight="37.0" prefWidth="50.0" style="-fx-border-color: black;" text="Buy">
@@ -210,7 +215,7 @@
                                           </Label>
                                           <Slider max="2.0" value="1.0" fx:id="xpodSlider">
                                              <HBox.margin>
-                                                <Insets right="150.0" top="10.0" />
+                                                <Insets right="115.0" top="10.0" />
                                              </HBox.margin>
                                           </Slider>
                                           <Label prefHeight="30.0" prefWidth="70.0" text="105$" fx:id="xpodCostPrice">
@@ -218,7 +223,7 @@
                                                 <Font name="Gabriola" size="29.0" />
                                              </font>
                                              <HBox.margin>
-                                                <Insets right="200.0" />
+                                                <Insets right="235.0" />
                                              </HBox.margin>
                                           </Label>
                                           <Button mnemonicParsing="false" onAction="#buyXp" prefHeight="37.0" prefWidth="50.0" style="-fx-border-color: black;" text="Buy">
@@ -255,7 +260,7 @@
                                           </Label>
                                           <Slider fx:id="lSlider" max="2.0" value="1.0">
                                              <HBox.margin>
-                                                <Insets right="150.0" top="10.0" />
+                                                <Insets right="115.0" top="10.0" />
                                              </HBox.margin>
                                           </Slider>
                                           <Label fx:id="laptopCostPrice" prefHeight="35.0" prefWidth="70.0" text="999$">
@@ -263,7 +268,7 @@
                                                 <Font name="Gabriola" size="29.0" />
                                              </font>
                                              <HBox.margin>
-                                                <Insets right="200.0" />
+                                                <Insets right="235.0" />
                                              </HBox.margin>
                                           </Label>
                                           <Button mnemonicParsing="false" onAction="#buyL" prefHeight="37.0" prefWidth="50.0" style="-fx-border-color: black;" text="Buy">
@@ -300,7 +305,7 @@
                                           </Label>
                                           <Slider max="2.0" value="1.0" fx:id="xphoneSlider">
                                              <HBox.margin>
-                                                <Insets right="150.0" top="10.0" />
+                                                <Insets right="115.0" top="10.0" />
                                              </HBox.margin>
                                           </Slider>
                                           <Label prefHeight="30.0" prefWidth="70.0" text="499$" fx:id="xphoneCostPrice">
@@ -308,7 +313,7 @@
                                                 <Font name="Gabriola" size="29.0" />
                                              </font>
                                              <HBox.margin>
-                                                <Insets right="200.0" />
+                                                <Insets right="235.0" />
                                              </HBox.margin>
                                           </Label>
                                           <Button mnemonicParsing="false" onAction="#buyXP" prefHeight="37.0" prefWidth="50.0" style="-fx-border-color: black;" text="Buy">
@@ -345,7 +350,7 @@
                                           </Label>
                                           <Slider fx:id="mSlider" max="2.0" value="1.0">
                                              <HBox.margin>
-                                                <Insets right="150.0" top="10.0" />
+                                                <Insets right="115.0" top="10.0" />
                                              </HBox.margin>
                                           </Slider>
                                           <Label fx:id="monitorCostPrice" prefHeight="30.0" prefWidth="70.0" text="120$">
@@ -353,7 +358,7 @@
                                                 <Font name="Gabriola" size="29.0" />
                                              </font>
                                              <HBox.margin>
-                                                <Insets right="200.0" />
+                                                <Insets right="235.0" />
                                              </HBox.margin>
                                           </Label>
                                           <Button mnemonicParsing="false" onAction="#buyM" prefHeight="37.0" prefWidth="50.0" style="-fx-border-color: black;" text="Buy">
@@ -367,7 +372,7 @@
                               </VBox>
                               <VBox prefHeight="695.0" prefWidth="380.0" style="-fx-border-color: Black;">
                                  <children>
-                                    <Label prefHeight="58.0" prefWidth="320.0" text="Your inventory " underline="true">
+                                    <Label prefHeight="58.0" prefWidth="320.0" text="Your inventory:  " underline="true">
                                        <font>
                                           <Font name="Gabriola" size="36.0" />
                                        </font>
@@ -562,16 +567,19 @@
                         </ProgressBar>
                         <ImageView fx:id="muteButton" fitHeight="34.0" fitWidth="66.0" onMouseClicked="#muteSound" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../image/mute.png" />
+                              <Image url="@../../ImageDir/mute.png" />
                            </image>
                            <HBox.margin>
                               <Insets left="10.0" top="10.0" />
                            </HBox.margin>
                         </ImageView>
-                        <Button fx:id="desktopButton1" mnemonicParsing="false" onAction="#openChart" prefHeight="37.0" prefWidth="50.0" style="-fx-border-color: black;" text="Test">
+                        <Button fx:id="desktopButton1" mnemonicParsing="false" onAction="#openChart" prefHeight="37.0" prefWidth="131.0" style="-fx-border-color: black;" text="Product Demand">
                            <font>
                               <Font name="Gabriola" size="18.0" />
                            </font>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
                         </Button>
                      </children>
                   </HBox>
@@ -583,14 +591,14 @@
          <children>
             <VBox alignment="TOP_CENTER" prefHeight="800.0" prefWidth="1200.0">
                <children>
-                  <Label text="Demand ">
+                  <Label text="Product Demand ">
                      <font>
                         <Font name="Gabriola" size="69.0" />
                      </font>
                   </Label>
                   <HBox alignment="BOTTOM_LEFT" prefHeight="700.0" prefWidth="1200.0">
                      <children>
-                        <VBox prefHeight="618.0" prefWidth="100.0" style="-fx-border-color: black;">
+                        <VBox prefHeight="618.0" prefWidth="100.0">
                            <children>
                               <Label text="20">
                                  <font>
