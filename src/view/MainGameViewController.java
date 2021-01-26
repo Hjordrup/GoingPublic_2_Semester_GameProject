@@ -33,7 +33,6 @@ public class MainGameViewController extends Application {
         stage.setTitle("Going Public V.0.3 Pre-Alpha");
         stage.setScene(new Scene(root1));
         stage.show();
-
     }
 
     public void continueToGame(MouseEvent event) throws IOException {

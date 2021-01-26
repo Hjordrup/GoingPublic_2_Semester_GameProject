@@ -2,12 +2,22 @@ package logic;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.*;
 
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,7 +25,7 @@ import java.util.ResourceBundle;
 
 public class MainGameLogicController implements Initializable{
     @FXML
-    private ImageView BackGroundImage, amountChangereArrow, muteButton;;
+    private ImageView BackGroundImage, amountChangereArrow, muteButton;
     @FXML
     private Label desktopSellingPrice, desktopCostPrice, camSellingPrice, camCostPrice, xpodSellingPrice, xpodCostPrice,
             amountChecker, laptopSellingPrice, laptopCostPrice, xphoneSellingPrice, xphoneCostPrice, monitorSellingPrice,
@@ -28,16 +38,30 @@ public class MainGameLogicController implements Initializable{
     @FXML
     private ProgressBar dayProgressBar;
 
+    @FXML
+    private AnchorPane modal, coverBlack;
+
+   @FXML
+   private Rectangle desktopLine, camLine, xpodLine, laptopLine, xphoneLine, monitorLine;
+
+
+
+
+
+
 
     // Main player object and backgroundMusic.
     public Player mainPlayer = new Player();
     public MusicClass m1 = new MusicClass();
 
 
+
     //count to control the logic.
     public int count = 0;
     public int costPriceCount = 0;
     public int dayCounter =0;
+
+
 
 
     @Override
@@ -183,51 +207,12 @@ public class MainGameLogicController implements Initializable{
 
     }
 
-
-
-
     //Mute gameSound.
     public void muteSound(){
         m1.muteSound();
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    //Update function
     public void update(){
         bankValueView.setText(mainPlayer.getBankValue() + "$");
         debtValueView.setText(mainPlayer.getDebtValue() +"$");
@@ -258,5 +243,31 @@ public class MainGameLogicController implements Initializable{
         monitorQuantity.setText(String.valueOf(mainPlayer.getASingelItem(5).getAmountOwn()));
 
     }
+
+
+
+
+
+    public void openChart(){
+        modal.setVisible(!modal.isVisible());
+        coverBlack.setVisible(!coverBlack.isVisible());
+        setLineSize();
+    }
+
+    public void setLineSize(){
+        desktopLine.setHeight(360*(2-mainPlayer.getASingelItem(0).getDemand()));
+        camLine.setHeight(360*(2-mainPlayer.getASingelItem(1).getDemand()));
+        xpodLine.setHeight(360*(2-mainPlayer.getASingelItem(2).getDemand()));
+        laptopLine.setHeight(360*(2-mainPlayer.getASingelItem(3).getDemand()));
+        xphoneLine.setHeight(360*(2-mainPlayer.getASingelItem(4).getDemand()));
+        monitorLine.setHeight(360*(2-mainPlayer.getASingelItem(5).getDemand()));
+    }
+
+
+
+
+
+
+
 
     }
