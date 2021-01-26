@@ -63,10 +63,11 @@ public class MainGameLogicController implements Initializable{
         Thread thread = new Thread(() -> {
             while (true) {
                 costPriceCount = mainPlayer.costPriceUpdate(costPriceCount);
-                mainPlayer.sellingItem();
+                mainPlayer.newSellingItems();
                 count = mainPlayer.paybackDebt(this.mainPlayer,this.count );
                 mainPlayer.marketValueUpdate();
                 this.dayProgressBar.setProgress(count*0.1);
+                this.mainPlayer.newSellingItems();
                 try {
                     Thread.sleep(1000);
 
@@ -161,7 +162,7 @@ public class MainGameLogicController implements Initializable{
 
 
 
-    // Function that set the selling price based on a modifier from a slider in the game.
+    // Function that set the selling price based on a modifier from a slider in the game. And at the same times set a demand for the item.
     public void sellingPriceModifier(){
         this.mainPlayer.getASingelItem(0).setSellingPrice((int) (this.mainPlayer.getASingelItem(0).getORGINAL_SELLINGPRICE()* dSlider.getValue()));
         this.mainPlayer.getASingelItem(1).setSellingPrice((int) (this.mainPlayer.getASingelItem(1).getORGINAL_SELLINGPRICE()* cSlider.getValue()));
@@ -169,7 +170,19 @@ public class MainGameLogicController implements Initializable{
         this.mainPlayer.getASingelItem(3).setSellingPrice((int) (this.mainPlayer.getASingelItem(3).getORGINAL_SELLINGPRICE()* lSlider.getValue()));
         this.mainPlayer.getASingelItem(4).setSellingPrice((int) (this.mainPlayer.getASingelItem(4).getORGINAL_SELLINGPRICE()* xphoneSlider.getValue()));
         this.mainPlayer.getASingelItem(5).setSellingPrice((int) (this.mainPlayer.getASingelItem(5).getORGINAL_SELLINGPRICE()* mSlider.getValue()));
+
+        this.mainPlayer.getASingelItem(0).setDemand((double)this.mainPlayer.getASingelItem(0).getSellingPrice()/this.mainPlayer.getASingelItem(0).getORGINAL_SELLINGPRICE());
+        this.mainPlayer.getASingelItem(1).setDemand((double)this.mainPlayer.getASingelItem(1).getSellingPrice()/this.mainPlayer.getASingelItem(1).getORGINAL_SELLINGPRICE());
+        this.mainPlayer.getASingelItem(2).setDemand((double)this.mainPlayer.getASingelItem(2).getSellingPrice()/this.mainPlayer.getASingelItem(2).getORGINAL_SELLINGPRICE());
+        this.mainPlayer.getASingelItem(3).setDemand((double)this.mainPlayer.getASingelItem(3).getSellingPrice()/this.mainPlayer.getASingelItem(3).getORGINAL_SELLINGPRICE());
+        this.mainPlayer.getASingelItem(4).setDemand((double)this.mainPlayer.getASingelItem(4).getSellingPrice()/this.mainPlayer.getASingelItem(4).getORGINAL_SELLINGPRICE());
+        this.mainPlayer.getASingelItem(5).setDemand((double)this.mainPlayer.getASingelItem(5).getSellingPrice()/this.mainPlayer.getASingelItem(5).getORGINAL_SELLINGPRICE());
+
+
+
+
     }
+
 
 
 

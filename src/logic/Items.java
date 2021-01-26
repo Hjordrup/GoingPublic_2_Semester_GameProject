@@ -7,7 +7,8 @@ public class Items {
     private int sellingPrice;
     private int amountOwn;
     private final int ORIGINAL_VALUE;
-    private int ORGINAL_SELLINGPRICE;
+    private final int ORGINAL_SELLINGPRICE;
+    private double demand = 1;
 
     // Constructor
     public Items(String name, int costPrice, int sellingPrice, int amountOwn) {
@@ -59,5 +60,13 @@ public class Items {
 
     public int getORGINAL_SELLINGPRICE() {
         return ORGINAL_SELLINGPRICE;
+    }
+
+    public double getDemand() {
+        return demand;
+    }
+
+    public void setDemand(double demand) {
+        this.demand = demand;
     }
 }

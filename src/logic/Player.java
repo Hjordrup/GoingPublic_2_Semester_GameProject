@@ -48,14 +48,17 @@ public class Player {
 
     }
 
-    //Function that picks and random type of item and sells and random amount of that items.
-    public void sellingItem(){
-        int amountToSell = (int)(Math.random()*10)+1;
-        int itemToSell = (int)(Math.random()*6);
 
-        if(itemsInCompany.get(itemToSell).getAmountOwn() > amountToSell){
-            itemsInCompany.get(itemToSell).setAmountOwn(itemsInCompany.get(itemToSell).getAmountOwn() - amountToSell);
-            setBankValue((int) (getBankValue() + (itemsInCompany.get(itemToSell).getSellingPrice()*amountToSell)));
+
+    //New Selling function
+    public void newSellingItems(){
+        for (int i = 0; i < 6; i++) {
+            int amountToSell = (int) (10/this.getASingelItem(i).getDemand() - ((int)(Math.random()*5)+1));
+            System.out.println(amountToSell);
+         if (this.getItemsInCompany().get(i).getAmountOwn() > amountToSell){
+             this.getASingelItem(i).setAmountOwn(this.getASingelItem(i).getAmountOwn() - amountToSell);
+             this.setBankValue(this.getBankValue() + this.getASingelItem(i).getSellingPrice()*amountToSell);
+         }
         }
     }
 
