@@ -1,11 +1,16 @@
 package view;
 
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
 import java.io.IOException;
 
@@ -14,6 +19,12 @@ public class MainGameViewController extends Application {
     Parent root;
     Parent root1;
     Stage window;
+
+    @FXML
+    private AnchorPane creditsPane;
+    @FXML
+    private Button closeCreditsButton;
+
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -48,5 +59,17 @@ public class MainGameViewController extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
+    @FXML
+    void closeCredits() {
+    creditsPane.setVisible(false);
+    }
+
+    @FXML
+    void openCredits() {
+        creditsPane.setVisible(true);
+    }
+
+
 }
 

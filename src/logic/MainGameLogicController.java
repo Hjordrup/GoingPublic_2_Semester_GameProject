@@ -59,6 +59,7 @@ public class MainGameLogicController implements Initializable{
 
 
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //Initalize the mainplayer and his company stats.
@@ -86,8 +87,11 @@ public class MainGameLogicController implements Initializable{
                 mainPlayer.newSellingItems();
                 count = mainPlayer.paybackDebt(this.mainPlayer,this.count );
                 mainPlayer.marketValueUpdate();
-                this.dayProgressBar.setProgress(count*0.1);
                 this.mainPlayer.newSellingItems();
+               this.dayProgressBar.setProgress(count*0.1);
+
+
+
                 try {
                     Thread.sleep(1000);
 
@@ -112,6 +116,7 @@ public class MainGameLogicController implements Initializable{
             }
         });
         gThread.start();
+
 
 
     }
